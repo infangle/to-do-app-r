@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import "./App.css";
 
 function App (){
 
@@ -8,6 +8,8 @@ function App (){
   const [tasks, setTasks] = useState([]);
   const [lastDeletedTask, setLastDeletedTask] = useState(null);
   const [showUndoToast, setShowUndoToast] = useState(false);
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [editedText, setEditedText] = useState(null);
 
 
   useEffect(() => {
@@ -62,24 +64,51 @@ function App (){
     }
   }
 
+  const handleEdit = (task) => {
+    setEditingTaskId(task.id);
+    setEditedText(task.text);
+
+  }
+
+  const handleSaveEdit = (id) =>{
+    if (editedText.trim() === ""){
+      setError("Edited task can not be empty");
+      return;
+    }
+    setTasks(
+      tasks.map((task) => task.id === id? {...task, text: editedText} : task));
+      setEditingTaskId(null);
+      setEditedText("");
+      setError("");
+  }
   return (
     <div className="App">
       <h1 className="title"> To-do list</h1>
       <form className='to-do-form'onSubmit={handleSubmit}>
         <input type="text" className="task-input" valu={task}onChange={(e) => setTask(e.target.value)}placeholder="Input task here"/>
         {error && <p className="error-msg" style={{color: "red"}}>{error}</p>}
-          <button type="submit" className="add-task-btn">Add</button>
+          <button type="submit" className="add-btn">Add</button>
       </form>
 
-      <ul className="task-list">
-        {tasks.map((task)=>(
-          <li key={task.id}>
-            <input type="checkbox" checked={task.completed} onChange={() => toggleComplete(task.id)} />
+       
+        {tasks.map((task) =>(
+          <div key={task.id} className="task-item">
+            {editingTaskId === task.id ? (
+              <>
+              <input type="text" value={editedText} onChange={(e) => setEditedText(e.target.value)} />
+              <button onClick={() => handleSaveEdit(task.id)} className="save-btn">Save</button>
+              </>
+            ) :(
+              <>
+              <input type="checkbox" checked={task.completed} onChange={() => toggleComplete(task.id)} />
             {task.text} 
+            <button onClick={() => handleEdit(task)} className="edit-btn">Edit</button>
+              </>
+            )}
             <button onClick={() => deleteTask(task.id)} className="delete-btn">Delete</button>
-              </li>
+          </div>
         ))}
-      </ul>
+     
 {showUndoToast && (
         <div className="undo-toast">
           <p>Task deleted</p>

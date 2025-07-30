@@ -1,6 +1,6 @@
-###To-Do App
+#To-Do App
 This is a simple, modern To-Do application built with React and Vite, designed to help users manage tasks efficiently. It features a clean interface, supports full CRUD operations (Create, Read, Update, Delete), and includes an undo feature for deleted tasks. Tasks are persisted using localStorage, ensuring they remain available across browser sessions. The app is deployed on Netlify for easy access.
-Table of Contents
+#Table of Contents
 
 Features
 Demo
@@ -13,7 +13,7 @@ Deployment
 Contributing
 License
 
-Features
+#Features
 
 Add Tasks: Create new tasks with a text description.
 View Tasks: Display all tasks in a clean, organized list.
@@ -23,7 +23,7 @@ Persistent Storage: Tasks are saved in the browser's localStorage, so they persi
 Responsive Design: Works on desktop and mobile browsers.
 Fast Development: Built with Vite for a speedy development experience.
 
-Demo
+#Demo
 Check out the live app at to-do-app-r.netlify.app. Try adding, editing, deleting tasks, and reloading the page to see persistence in action.
 Technologies
 
@@ -34,7 +34,7 @@ CSS: Styling for the app’s interface.
 localStorage: Browser storage for task persistence.
 Netlify: Hosting platform for deployment.
 
-Prerequisites
+#Prerequisites
 To run or contribute to this project, you’ll need:
 
 Node.js (v18 or later): Install from nodejs.org.
@@ -42,7 +42,7 @@ Git: Install from git-scm.com.
 A modern web browser (e.g., Chrome, Firefox).
 A code editor (e.g., VS Code).
 
-Installation
+#Installation
 Follow these steps to set up the project locally:
 
 Clone the Repository:
@@ -70,7 +70,7 @@ npm run preview
 Open http://localhost:4173 to test the production build.
 
 
-Usage
+#Usage
 
 Add a Task: Enter a task in the input field and press Enter or click the "Add" button.
 Edit a Task: Click a task’s text to edit it, then save changes.
@@ -110,7 +110,7 @@ netlify.toml:[build]
 
 
 
-Deployment
+#Deployment
 The app is deployed on Netlify. To deploy your own version:
 
 Push to GitHub:Ensure your code is in a GitHub repository (github.com/infangle/to-do-app-r).
@@ -133,7 +133,7 @@ Publish directory: to-do/dist
 Deploy the site. The URL (e.g., to-do-app-r.netlify.app) will be provided.
 
 
-Troubleshooting:
+#Troubleshooting:
 
 Blank Page: Ensure publish = "to-do/dist" in netlify.toml or Netlify UI, and base: "/" in vite.config.js.
 404 Errors: Check DevTools Network tab for missing assets. Verify dist/index.html asset paths.
@@ -141,7 +141,7 @@ Build Fails: Confirm vite is in package.json and Node version is compatible (e.g
 
 
 
-Contributing
+#Contributing
 Contributions are welcome! To contribute:
 
 Fork the repository.

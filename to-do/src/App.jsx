@@ -83,9 +83,9 @@ function App (){
   }
   return (
     <div className="App">
-      <h1 className="title"> To-do list</h1>
+      <h2 className="title"> To-do list</h2>
       <form className='to-do-form'onSubmit={handleSubmit}>
-        <input type="text" className="task-input" valu={task}onChange={(e) => setTask(e.target.value)}placeholder="Input task here"/>
+        <input type="text" className="task-input" value={task}onChange={(e) => setTask(e.target.value)}placeholder="Input task here"/>
         {error && <p className="error-msg" style={{color: "red"}}>{error}</p>}
           <button type="submit" className="add-btn">Add</button>
       </form>
@@ -95,7 +95,7 @@ function App (){
           <div key={task.id} className="task-item">
             {editingTaskId === task.id ? (
               <>
-              <input type="text" value={editedText} onChange={(e) => setEditedText(e.target.value)} />
+              <input className="task-input" type="text" value={editedText} onChange={(e) => setEditedText(e.target.value)} />
               <button onClick={() => handleSaveEdit(task.id)} className="save-btn">Save</button>
               </>
             ) :(
